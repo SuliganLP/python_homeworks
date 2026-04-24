@@ -14,13 +14,12 @@ orders = [
 ]
 
 
-def select_products(orders: list) -> list:
-    expensive_orders = filter(lambda order: order["price"] > 500, orders)
+def select_products(orders: list[dict], min_price: int = 500) -> list[str]:
+    expensive_orders = filter(lambda order: order["price"] > min_price, orders)
 
     product_names = map(lambda order: order["product"], expensive_orders)
 
     return sorted(product_names)
-
 
 # Статистика продаж
 # Дан список продаж в виде кортежей (товар, количество, цена).
@@ -31,6 +30,7 @@ def select_products(orders: list) -> list:
 # {'Chair': 16000, 'Laptop': 6000,
 # 'Monitor': 3000, 'Keyboard': 1500,
 # 'Mouse': 1000}
+
 
 sales = [
     ("Laptop", 5, 1200),
