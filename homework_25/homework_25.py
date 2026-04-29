@@ -8,22 +8,23 @@
 import logging
 
 
-def division() -> None:
-    try:
-        first_num = float(input("Введите делимое: "))
-        second_num = float(input("Введите делитель: "))
-        result = round(first_num / second_num, 2)
-    except ZeroDivisionError:
-        print("Делитель не может быть 0")
-    except ValueError:
-        print("Некорректное число")
-    else:
-        print(f"Результат: {result}")
-    finally:
-        print("Программа завершена")
+def division(first_num: float, second_num: float) -> float:
+    return round(first_num / second_num, 2)
 
 
-division()
+try:
+    first_num = float(input("Введите делимое: "))
+    second_num = float(input("Введите делитель: "))
+    result = division(first_num, second_num)
+except ZeroDivisionError:
+    print("Делитель не может быть 0")
+except ValueError:
+    print("Некорректное число")
+else:
+    print(f"Результат: {result}")
+finally:
+    print("Программа завершена")
+
 
 # Логирование ошибок
 # Перенаправьте в предыдущей задаче вывод ошибок в файл errors.log в соответствии с форматом
@@ -38,19 +39,19 @@ logging.basicConfig(
 )
 
 
-def division() -> None:
-    try:
-        first_num = float(input("Введите делимое: "))
-        second_num = float(input("Введите делитель: "))
-        result = round(first_num / second_num, 2)
-    except ZeroDivisionError:
-        logging.error("Делитель не может быть 0")
-    except ValueError:
-        logging.error("Некорректное число")
-    else:
-        print(f"Результат: {result}")
-    finally:
-        print("Программа завершена")
+def division(first_num: float, second_num: float) -> float:
+    return round(first_num / second_num, 2)
 
 
-division()
+try:
+    first_num = float(input("Введите делимое: "))
+    second_num = float(input("Введите делитель: "))
+    result = division(first_num, second_num)
+except ZeroDivisionError:
+    logging.error("Делитель не может быть 0")
+except ValueError:
+    logging.error("Некорректное число")
+else:
+    print(f"Результат: {result}")
+finally:
+    print("Программа завершена")
