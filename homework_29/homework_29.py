@@ -15,8 +15,15 @@
 # 13
 # 21
 # 34
+from collections.abc import Iterator
 
-def fib_gen():
+
+def fib_gen() -> Iterator[int]:
+    """
+        Generate an infinite Fibonacci sequence.
+        Yields:
+            int: Next Fibonacci number.
+    """
     a, b = 0, 1
 
     while True:
@@ -55,7 +62,14 @@ print(next(gen))
 data = [3, 1, 2, 3, 4, 1, 5, 2, 6, 7, 5, 8]
 
 
-def generator(items):
+def generator(items: list[int]) -> Iterator[int]:
+    """
+    Yield unique numbers while preserving their original order.
+    Args:
+        items: List of integers
+    Yields:
+        Unique integers from the list
+    """
     used_nums = set()
 
     for num in items:
