@@ -43,7 +43,7 @@ class BankAccount:
         if not isinstance(amount, int | float):
             raise TypeError("Amount should be int or float")
         if amount <= 0:
-            return "Error: Amount must be positive."
+            raise ValueError("Error: Amount must be positive.")
 
         self._balance += amount
         self._history.append(f"Deposit: {amount}")
@@ -54,7 +54,7 @@ class BankAccount:
         if not isinstance(amount, int | float):
             raise TypeError("Amount should be int or float")
         if amount <= 0:
-            return "Error: Amount must be positive"
+            raise ValueError("Error: Amount must be positive.")
         if amount > self._balance:
             return "Error: Not enough funds."
 
