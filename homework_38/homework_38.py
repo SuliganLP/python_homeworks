@@ -56,7 +56,7 @@ class BankAccount:
         if amount <= 0:
             raise ValueError("Error: Amount must be positive.")
         if amount > self._balance:
-            return "Error: Not enough funds."
+            raise ValueError("Error: Not enough funds.")
 
         self._balance -= amount
         self._history.append(f"Withdraw: {amount}")
